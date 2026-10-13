@@ -3,6 +3,13 @@
   <url>
     <loc>https://grandarchives.github.io/harry-potter/</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://grandarchives.github.io/harry-potter/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grandarchives.github.io/harry-potter/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://grandarchives.github.io/harry-potter/"/>
+  </url>
+  <url>
+    <loc>https://grandarchives.github.io/harry-potter/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://grandarchives.github.io/harry-potter/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://grandarchives.github.io/harry-potter/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://grandarchives.github.io/harry-potter/"/>
   </url>
 </urlset>

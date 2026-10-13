@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-**Always respond to the user in Brazilian Portuguese (pt-BR)**, regardless of the language of the conversation, an issue/PR or any file being discussed. Everything written into the repository (code, comments, commits, this file) is in English, except the site's own content, which is Portuguese in `site/i18n/pt-BR/`.
+**Always respond to the user in Brazilian Portuguese (pt-BR)**, regardless of the language of the conversation, an issue/PR or any file being discussed. Everything written into the repository (code, comments, commits, this file) is in English, except the site's own content, which is Portuguese in `site/i18n/pt-BR/` (the English version of that content lives in `site/i18n/en/`).
 
 ## What this is
 
@@ -11,7 +11,7 @@ Static guide to the Harry Potter wizarding world, published on GitHub Pages at `
 ```
 site/
   index.html                  pt-BR page (site root; keeps the published URL)
-  sitemap.xml                 every language URL, with xhtml:link hreflang alternates
+  sitemap.xml                 every language URL (pt-BR and en), with xhtml:link hreflang alternates
   assets/icons/               favicon.ico, favicon.svg, apple-touch-icon.png
   assets/img/                 crest and house shields (.webp), language-independent
   css/style.css               all styles
@@ -19,14 +19,18 @@ site/
   i18n/languages.json         [{ "code", "name", "path" }] used by the language selector
   i18n/pt-BR/ui.json          UI strings (flat "section.key": "text"; values may hold trusted inline HTML)
   i18n/pt-BR/data.js          content as `export default { E, ERAS, QITEMS, QTABS, OBRAS, SRC, START }`
-  <code>/index.html           future language pages (e.g. site/en/index.html), data in site/i18n/<code>/
+  i18n/en/ui.json, data.js    English UI strings and content (same keys, ids and structure as pt-BR)
+  en/index.html               English page (`https://grandarchives.github.io/harry-potter/en/`)
+  <code>/index.html           pages of any further language, data in site/i18n/<code>/
 ```
 
-How a page works: `<html lang="...">` is the language code and the folder name under `site/i18n/`. `js/app.js` (classic `defer` script) loads `ui.json`, `data.js` and `languages.json`, injects the body skeleton into `<div id="app">`, fills every `data-i18n` / `data-i18n-attr` element, renders the language selector into `#langbar`, then runs the page logic. The selector renders nothing while only one language exists.
+How a page works: `<html lang="...">` is the language code and the folder name under `site/i18n/`. `js/app.js` (classic `defer` script) loads `ui.json`, `data.js` and `languages.json`, injects the body skeleton into `<div id="app">`, fills every `data-i18n` / `data-i18n-attr` element, renders the language selector into `#langbar`, then runs the page logic. The selector lists every entry of `languages.json` (currently Português and English).
 
 Conventions in `app.js`: house ids (`grifinoria`, `sonserina`, `lufalufa`, `corvinal`), profile types (`criatura`, `magia`, `figura`, `lugar`, `mundo`), pitch item ids (`aros`, `goleiro`, ...) and source keys (`lt`, `site`, `ent`, `peca`, `af`) are fixed, language-independent keys, because they are tied to image polygons and pitch geometry. Every `data.js` must reuse the same ids. Content ids, years, relations and source links belong in `data.js`; non-text presentation constants (colors, geometry, layout) stay in `app.js`.
 
-The images contain baked-in text (the four house shields carry the house name in Portuguese on the banner; the Hogwarts crest carries the Latin motto). They are shared by all languages; localized shields would need a per-language image set.
+The images contain baked-in text (the four house shields carry the house name in Portuguese on the banner: Grifinória, Sonserina, Lufa-Lufa, Corvinal; the Hogwarts crest carries the Latin motto). They are shared by all languages, so the English page still shows the Portuguese house names on the shields; localized shields would need a per-language image set (not done yet).
+
+The English `data.js` uses Rowling's original UK English names and terms and has the same structure as pt-BR with two documented differences: the four creature profiles whose only fact was the original-name note (`pelucio`, `tronquilho`, `seminviso`, `pomorim`) have no `f` array, and the book entries in `OBRAS` leave the "original title" field empty because the title already is the original. The Quidditch player marker letters (`QITEMS[...].k`) are K, C, B, S in English. Keep both files in sync when content changes.
 
 ## How to add a language
 
@@ -76,7 +80,7 @@ pt-BR is the primary language and stays at the root URL. There is no automatic b
 </html>
 ```
 
-The pt-BR root page uses the same template with `lang="pt-BR"`, `og:locale` `pt_BR`, `og:locale:alternate` `en_US` once English exists, and paths without `../`. Use relative paths only (no leading `/`) so pages work at `/harry-potter/` in production and at `/` locally.
+The pt-BR root page uses the same template with `lang="pt-BR"`, `og:locale` `pt_BR`, `og:locale:alternate` `en_US`, an extra `hreflang="en"` alternate, and paths without `../`. Use relative paths only (no leading `/`) so pages work at `/harry-potter/` in production and at `/` locally.
 
 ## Rules
 
