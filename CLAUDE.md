@@ -4,7 +4,7 @@
 
 ## What this is
 
-Static guide to the Harry Potter wizarding world, published on GitHub Pages at `https://grandarchives.github.io/harry-potter/` (GrandArchives org). Plain HTML/CSS/JS: no framework, no build step, no dependencies. The whole `site/` folder is what gets published (`.github/workflows/pages.yml` uploads `site` as the Pages artifact on every push to `master`).
+Static guide to the Harry Potter wizarding world, published on GitHub Pages at `https://grand-archives.github.io/harry-potter/` (GrandArchives org). Plain HTML/CSS/JS: no framework, no build step, no dependencies. The whole `site/` folder is what gets published (`.github/workflows/pages.yml` uploads `site` as the Pages artifact on every push to `master`).
 
 ## Folder structure
 
@@ -20,7 +20,7 @@ site/
   i18n/pt-BR/ui.json          UI strings (flat "section.key": "text"; values may hold trusted inline HTML)
   i18n/pt-BR/data.js          content as `export default { E, ERAS, QITEMS, QTABS, OBRAS, SRC, START }`
   i18n/en/ui.json, data.js    English UI strings and content (same keys, ids and structure as pt-BR)
-  en/index.html               English page (`https://grandarchives.github.io/harry-potter/en/`)
+  en/index.html               English page (`https://grand-archives.github.io/harry-potter/en/`)
   <code>/index.html           pages of any further language, data in site/i18n/<code>/
 ```
 
@@ -53,17 +53,17 @@ pt-BR is the primary language and stays at the root URL. There is no automatic b
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>... | GrandArchives</title>
 <meta name="description" content="...">
-<link rel="canonical" href="https://grandarchives.github.io/harry-potter/en/">
-<link rel="alternate" hreflang="pt-BR" href="https://grandarchives.github.io/harry-potter/">
-<link rel="alternate" hreflang="en" href="https://grandarchives.github.io/harry-potter/en/">
-<link rel="alternate" hreflang="x-default" href="https://grandarchives.github.io/harry-potter/">
+<link rel="canonical" href="https://grand-archives.github.io/harry-potter/en/">
+<link rel="alternate" hreflang="pt-BR" href="https://grand-archives.github.io/harry-potter/">
+<link rel="alternate" hreflang="en" href="https://grand-archives.github.io/harry-potter/en/">
+<link rel="alternate" hreflang="x-default" href="https://grand-archives.github.io/harry-potter/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="GrandArchives">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="pt_BR">
 <meta property="og:title" content="... | GrandArchives">
 <meta property="og:description" content="...">
-<meta property="og:url" content="https://grandarchives.github.io/harry-potter/en/">
+<meta property="og:url" content="https://grand-archives.github.io/harry-potter/en/">
 <link rel="icon" href="../assets/icons/favicon.ico" sizes="any">
 <link rel="icon" href="../assets/icons/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
